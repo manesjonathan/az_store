@@ -34,9 +34,9 @@ foreach ($items as $item) {
 
         //echo $item; 
         // array_push($_SESSION['shopping-cart'], $item);
-        $_SESSION['shopping-cart'][]=$item;
+        $shopping_cart[]=$item;
         echo '<pre>';
-        print_r($_SESSION);
+        print_r($shopping_cart);
         echo '</pre>';
     }
 
