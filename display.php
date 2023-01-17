@@ -10,6 +10,14 @@
 <?php
 session_start();
 $shopping_cart = $_SESSION['shopping-cart'];
+//$_SESSION['shopping-cart'][] = 'test';
+// array_push($_SESSION['shopping-cart'], 'test');
+// array_push($_SESSION['shopping-cart'], 'test2');
+// echo '<pre>';
+// print_r($_SESSION['shopping-cart']);
+// echo '</pre>';
+// array_splice($_SESSION,0);
+// unset($_SESSION['shopping-cart']);
 
 include "tableau.php";
 
@@ -23,11 +31,13 @@ foreach ($items as $item) {
     </form>                                                                    
     </div>';
     if (isset($_GET["Add{$item['id']}"])) {
-        // echo 'ca marche'; 
-        // $array_push($shopping_cart, 'test');
-        // echo '<pre>';
-        // print_r($shopping_cart);
-        // echo '</pre>';
+
+        //echo $item; 
+        // array_push($_SESSION['shopping-cart'], $item);
+        $_SESSION['shopping-cart'][]=$item;
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
     }
 
 }
