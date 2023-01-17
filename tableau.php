@@ -33,7 +33,3 @@ $items = [
     ],
 
 ];
-
-echo "<pre>";
-print_r($items);
-echo "</pre>";
