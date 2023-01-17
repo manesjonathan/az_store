@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['shopping-cart'] = ($_SESSION['shopping-cart'] != null) ? $_SESSION['shopping-cart'] :array() ;
+print_r($_SESSION['shopping-cart']);
 
 ?>
 
@@ -43,16 +43,17 @@ $_SESSION['shopping-cart'] = ($_SESSION['shopping-cart'] != null) ? $_SESSION['s
             echo '<input type="submit" name="Add' . $item['id'] . '" value="Add to cart">';
             echo '</form>';
             echo '</div>';
-            if (isset($_GET["Add{$item['id']}"])) {
-                echo "coucou";
-                array_push($_SESSION['shopping-cart'], $item);
-            }
+
+            
+        if (isset($_GET["Add{$item['id']}"])) {
+            array_push($_SESSION['shopping-cart'], $item);
+        }
         }
 
-     
+
         ?>
         <!-- display the catch section -->
-
+    
 
     </main>
 

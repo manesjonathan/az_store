@@ -1,3 +1,27 @@
+<?php
+
+$_SESSION['price'] = 0;
+
+/* fonction qui calcule le prix total
+    le paramètre $array correspond à $_SESSION["shopping-cart"] 
+*/
+function prize($array)
+{
+    $total_price = 0;
+    foreach ($array as $article) {
+        $total_price = $total_price + $article["price"];
+    }
+    $_SESSION['price'] = $total_price;
+    return $total_price;
+};
+
+function remove($item)
+{
+    $key = array_search($item, $_SESSION["shopping-cart"]);
+    unset($_SESSION["shopping-cart"][$key]);
+};
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +53,8 @@
 
             //call the function total and add the $shopping_item price to it
 
-            print_r($shopping_item);
         }
+        print_r(count($_SESSION['shopping-cart']));
         //display total
 
         //create the button go to checkout
