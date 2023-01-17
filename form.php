@@ -1,25 +1,25 @@
 <html>
 <form action="" method="post">
     <label for="fname">First-name : </label>
-    <input type="text" id="fname" name="fname">
+    <input type="text" id="fname" name="fname" value="<?php echo isset($_POST["fname"]) ? $_POST["fname"] : ''; ?>">
     <br>
     <label for="lname">Last-name : </label>
-    <input type="text" id="lname" name="lname">
+    <input type="text" id="lname" name="lname" value="<?php echo isset($_POST["lname"]) ? $_POST["lname"] : ''; ?>">
     <br>
     <label for="mail">E-mail : </label>
-    <input type="text" id="email" name="email">
+    <input type="text" id="email" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
     <br>
     <label for="streetNumber">Street and number : </label>
-    <input type="text" id="streetNumber" name="streetNumber">
+    <input type="text" id="streetNumber" name="streetNumber" value="<?php echo isset($_POST["streetNumber"]) ? $_POST["streetNumber"] : ''; ?>">
     <br>
     <label for="city">City : </label>
-    <input type="text" id="city" name="city">
+    <input type="text" id="city" name="city" value="<?php echo isset($_POST["city"]) ? $_POST["city"] : ''; ?>">
     <br>
     <label for="postalCode">Postal code : </label>
-    <input type="text" id="postalCode" name="postalCode">
+    <input type="text" id="postalCode" name="postalCode" value="<?php echo isset($_POST["postalCode"]) ? $_POST["postalCode"] : ''; ?>">
     <br>
     <label for="country">Country : </label>
-    <input type="text" id="country" name="country">
+    <input type="text" id="country" name="country" value="<?php echo isset($_POST["country"]) ? $_POST["country"] : ''; ?>">
     <br>
     <input type="submit" name="submit" value="Submit">
 </form>
@@ -39,6 +39,9 @@ if (isset($_POST['submit'])) {
         }
     }
     if ($error) {
+?>
+        <p class="errorMsg"> <?php $error_message ?></p>
+    <?php
         echo $error_message;
     } else {
         checkForm();
@@ -57,37 +60,31 @@ function checkForm()
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $postalCode = $_POST['postalCode'];
     if (ctype_alpha($fname) && ctype_alpha($lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
-?> <img src="assets/image/correct.png" alt="Correct : contient uniquement des lettres" style="width: 2%;">
+    ?> <img src="assets/image/correct.png" alt="Correct : contient uniquement des lettres" style="width: 2%;">
         <?php
     } else {
         if (!ctype_alpha($fname)) {
         ?>
-            <p>Warning: incorrect first-name. It can only contain letters.</p>
+            <p class="errorMsg">Warning: incorrect first-name. It can only contain letters.</p>
         <?php
         }
         if (!ctype_alpha($lname)) {
         ?>
-            <p>Warning: incorrect last-name. It can only contain letters.</p>
+            <p class="errorMsg">Warning: incorrect last-name. It can only contain letters.</p>
         <?php
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         ?>
-            <p>Warning: the format of the e-mail address is incorrect.</p>
+            <p class="errorMsg">Warning: the format of the e-mail address is incorrect.</p>
         <?php
         }
         if (!ctype_digit($postalCode)) {
         ?>
-            <p>Warning: incorrect postal code. It can only contain numbers.</p>
+            <p class="errorMsg">Warning: incorrect postal code. It can only contain numbers.</p>
 <?php
         }
     }
 }
-
-
-
-
-
-
 ?>
 
 </html>
