@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['shopping-cart'] = array();
+$_SESSION['shopping-cart'] = ($_SESSION['shopping-cart'] != null) ? $_SESSION['shopping-cart'] :array() ;
 
 ?>
 
@@ -28,9 +28,32 @@ $_SESSION['shopping-cart'] = array();
         <a href="/shopping-cart.php">Cart</a>
     </header>
     <main>
-        <?php include 'tableau.php';
-        
+        <!-- display the carousel with products-->
+
+        <!-- display all products -->
+        <?php
+
+        include "tableau.php";
+        foreach ($items as $item) {
+            echo '<div class="article">';
+            echo '<img src="' . $item['image_url'] . '" class="article__img">';
+            echo '<h3 class="article__name">' . $item['product'] . '</h3>';
+            echo '<p class="article__price">' . $item['price'] . '€</p>';
+            echo '<form method="get" action="" class="article_addcart">';
+            echo '<input type="submit" name="Add' . $item['id'] . '" value="Add to cart">';
+            echo '</form>';
+            echo '</div>';
+            if (isset($_GET["Add{$item['id']}"])) {
+                echo "coucou";
+                array_push($_SESSION['shopping-cart'], $item);
+            }
+        }
+
+     
         ?>
+        <!-- display the catch section -->
+
+
     </main>
 
     <footer>

@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +13,7 @@ session_start();
     <header>
         <h1>AZ Store</h1>
         <nav>
-            <a class="active" href="#home">Home</a>
+            <a href="/index.php">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
@@ -24,14 +21,26 @@ session_start();
     </header>
     <main>
         <?php
-        print_r($_SESSION['shopping-cart']);
+        session_start();
+        foreach ($_SESSION['shopping-cart'] as $shopping_item) {
+            //display each element in HTML format
+
+            //replace the button "ADD" by "REMOVE"
+
+            //call the function total and add the $shopping_item price to it
+
+            print_r($shopping_item);
+        }
+        //display total
+
+        //create the button go to checkout
         ?>
 
     </main>
 
     <footer>
         <nav>
-            <a class="active" href="#home">Home</a>
+            <a href="/index.php">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
