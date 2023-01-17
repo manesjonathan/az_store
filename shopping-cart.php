@@ -1,5 +1,4 @@
 <?php
-
 $_SESSION['price'] = 0;
 
 /* fonction qui calcule le prix total
