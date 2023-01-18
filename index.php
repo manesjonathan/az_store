@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AZ Store">
     <link rel="stylesheet" href="./assets/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>AZ Store</title>
 </head>
 
-<body>
+<body class="bg-gradient-to-b from-gray-900 via-gray-900 to-black">
     <?php
     include "./header.php"
     ?>
@@ -27,7 +30,7 @@
         <!-- display the carousel with products-->
 
         <!-- display all products -->
-        <h2>Our last products</h2>
+        <h2 class="text-white font-ubuntu">Our last products</h2>
         <section>
             <?php
             session_start();

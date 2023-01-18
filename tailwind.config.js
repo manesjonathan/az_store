@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./*.php"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'ubuntu': ['Ubuntu', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
