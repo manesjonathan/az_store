@@ -26,7 +26,7 @@ $country = $arrayForm['country'];
     <header>
         <h1>AZ Store</h1>
         <nav>
-            <a href="#home">Home</a>
+            <a href="./index.php">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
@@ -43,7 +43,7 @@ $country = $arrayForm['country'];
     </main>
     <footer>
         <nav>
-            <a href="#home">Home</a>
+            <a href="./index.php">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
