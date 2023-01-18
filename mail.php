@@ -14,7 +14,7 @@ function send_mail($to)
     $mail->Host       = 'smtp-relay.sendinblue.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'manesjona@gmail.com';                     // SMTP username
-    $mail->Password   = 'JR7TFvUd6LXDw2jc';                               // SMTP password
+    $mail->Password   = 'YOUR API KEY';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     $mail->Port       = 587;                                    // TCP port to connect to
 
