@@ -40,15 +40,15 @@ if (isset($_POST['submit'])) {
     if ($error) {
 ?>
         <p class="errorMsg"> <?php $error_message ?></p>
-    <?php
+        <?php
         echo $error_message;
     } else {
         $arrayForm = array($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['streetNumber'], $_POST['city'], $_POST['postalCode'], $_POST['country']);
-        checkForm();
+        checkForm($arrayForm);
     }
 }
 
-function checkForm()
+function checkForm($arrayForm)
 {
     $fname = $_POST['fname'];
     //echo $fname;
@@ -58,8 +58,8 @@ function checkForm()
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $postalCode = $_POST['postalCode'];
     if (ctype_alpha($fname) && ctype_alpha($lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
-    ?> <img src="assets/image/correct.png" alt="Correct : contient uniquement des lettres" style="width: 2%;">
-        <?php
+        $_SESSION['user_input'] = $arrayForm;
+        header("Location: ./confirmation.php");
     } else {
         if (!ctype_alpha($fname)) {
         ?>
