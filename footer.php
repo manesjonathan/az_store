@@ -1,4 +1,4 @@
-<footer class="text-white font-ubuntu font-medium flex justify-around mb-4">
+<footer class="text-white font-ubuntu font-medium flex justify-around mb-4 mt-auto">
     <nav class="text-base">
         <a class="mr-2.5" href="./index.php">Home</a>
         <a class="mr-2.5" href="#about">About</a>
