@@ -1,12 +1,14 @@
 <?php
 session_start();
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email = $_POST['email'];
-$street_number = $_POST['streetNumber'];
-$city = $_POST['city'];
-$postal_code = $_POST['postalCode'];
-$country = $_POST['country'];
+
+$arrayForm = $_SESSION['user_input'];
+$fname = $arrayForm['fname'];
+$lname = $arrayForm['lname'];
+$email = $arrayForm['email'];
+$street_number = $arrayForm['streetNumber'];
+$city = $arrayForm['city'];
+$postal_code = $arrayForm['postalCode'];
+$country = $arrayForm['country'];
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +35,10 @@ $country = $_POST['country'];
 
     <main>
 
-        <h2>THANK YOU</h2>
+        <?php
+        echo "<h2> THANK YOU " . strtoupper($fname) . " " . strtoupper($lname) . " !</h2>";
+        echo "<h3> We have received your order and you will be contacted soon by our team.</h3>";
+        ?>
 
     </main>
     <footer>
