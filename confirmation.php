@@ -43,7 +43,7 @@ $country = $arrayForm['country'];
     </main>
     <footer>
         <nav>
-            <a class="active" href="#home">Home</a>
+            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
