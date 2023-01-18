@@ -4,7 +4,7 @@ $_SESSION['price'] = 0;
 /* fonction qui calcule le prix total
     le paramètre $array correspond à $_SESSION["shopping-cart"] 
 */
-function prize($array)
+function price($array)
 {
     $total_price = 0;
     foreach ($array as $article) {
