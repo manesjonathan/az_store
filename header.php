@@ -1,11 +1,15 @@
-<header class="text-white font-ubuntu flex">
-    <h1>AZ Store</h1>
-    <nav>
-        <a href="./index.php">Home</a>
-        <a href="#about">About</a>
-        <a href="#product">Product</a>
+<header class="text-white font-ubuntu font-medium flex justify-around mt-4">
+    <h1 class="text-lg">AZ[Store]</h1>
+    <nav class="text-base">
+        <a class="mr-2.5" href="./index.php">Home</a>
+        <a class="mr-2.5" href="#about">About</a>
+        <a class="mr-2.5" href="#product">Product</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <a href="./shopping-cart.php">Cart</a>
+    <div class="flex">
+        <img class="w-6 h-6 mr-2" src="./assets/image/panier.png" alt="cart">
+        <a class="text-base" href="./shopping-cart.php">Cart</a>
+    </div>
+
 </header>
