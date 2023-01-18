@@ -27,8 +27,7 @@
 
 <?php
 
-$arrayForm = array($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['streetNumber'], $_POST['city'], $_POST['postalCode'], $_POST['country']);
-
+$arrayForm = array();
 if (isset($_POST['submit'])) {
     $error = false;
     $error_message = "";
@@ -44,11 +43,10 @@ if (isset($_POST['submit'])) {
     <?php
         echo $error_message;
     } else {
+        $arrayForm = array($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['streetNumber'], $_POST['city'], $_POST['postalCode'], $_POST['country']);
         checkForm();
     }
 }
-
-
 
 function checkForm()
 {
