@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-black">
-    <header>
+    <header class="text-white">
         <p>AZ Store</p>
         <nav>
             <a class="active" href="#home">Home</a>
