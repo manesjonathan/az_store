@@ -34,6 +34,7 @@ function display()
         echo '<div class="article">';
         echo '<img src="' . $shopping_item['image_url'] . '" class="article__img">';
         echo '<h3 class="article__name">' . $shopping_item['product'] . '</h3>';
+        echo '<p class="article__quantity">'.$shopping_item['quantity'] .'</p>';
         echo '<p class="article__price">' . $shopping_item['price'] . '€</p>';
         echo '<form method="get" action="" class="article_removecart">';
         //replace the button "ADD" by "REMOVE"

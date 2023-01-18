@@ -42,7 +42,17 @@
             echo '</div>';
 
             if (isset($_POST["Add{$i}"])) {
-                $_SESSION['shopping-cart'][] = $item;
+                $change=false;
+                foreach($_SESSION['shopping-cart'] as $elem){
+                    if($elem["id"]==$item["id"]){
+                        $elem["quantity"]++;
+                        $change=true;
+                    }
+                }
+                if(!$change){
+                    $item["quantity"]++;
+                    $_SESSION['shopping-cart'][] = $item;
+                }
             }
         }
         ?>
