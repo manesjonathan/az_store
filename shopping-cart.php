@@ -20,6 +20,10 @@ function remove($item)
     unset($_SESSION["shopping-cart"][$key]);
 };
 
+function resetCart(){
+    unset($_SESSION['shopping-cart']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,19 +49,30 @@ function remove($item)
     <main>
         <?php
         session_start();
-        foreach ($_SESSION['shopping-cart'] as $shopping_item) {
-            //display each element in HTML format
-
-            //replace the button "ADD" by "REMOVE"
-
-            //call the function total and add the $shopping_item price to it
-
+        if (isset($_POST['reset'])){
+            resetCart();
         }
-        print_r(count($_SESSION['shopping-cart']));
-        //display total
-
-        //create the button go to checkout
+        if (isset($_SESSION['shopping-cart'])){
+            foreach ($_SESSION['shopping-cart'] as $shopping_item) {
+                //display each element in HTML format
+                
+                //replace the button "ADD" by "REMOVE"
+                
+                //call the function total and add the $shopping_item price to it
+                
+            }
+            print_r(count($_SESSION['shopping-cart']));
+            //display total
+            
+            //create the button go to checkout
+        }
+        
         ?>
+        <form method="post">
+            <input type="submit" name="reset" class="button" value="Reset cart" />
+        </form>
+
+
 
     </main>
 
