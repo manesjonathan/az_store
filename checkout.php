@@ -77,55 +77,54 @@ function checkForm($arrayForm)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AZ Store">
+    <link rel="stylesheet" href="./assets/css/output.css">
     <title>AZ Store</title>
 </head>
 
-<body>
+<body class="bg-gradient-to-b from-gray-900 via-gray-900 to-black text-center text-white flex flex-col h-screen">
     <?php
     include "./header.php"
     ?>
     <main>
-        <?php
+        <h2 class="mt-10 text-4xl">Delivery Information</h2>
+        <hr class="w-1/2 h-0.5 mx-auto my-4 bg-gray-100 ">
 
-        //foreach ($shopping_cart_list as $shopping_item) {
-        //display each element in HTML format (summary of shopping cart), no buttons
-        //}
-        //display total somewhere (variable saved in $_SESSION)
-        ?>
-        <form action="" method="post">
-            <label for="fname">First-name : </label>
-            <input type="text" id="fname" name="fname" value="<?php echo isset($_POST["fname"]) ? $_POST["fname"] : ''; ?>">
-            <br>
-            <label for="lname">Last-name : </label>
-            <input type="text" id="lname" name="lname" value="<?php echo isset($_POST["lname"]) ? $_POST["lname"] : ''; ?>">
-            <br>
-            <label for="mail">E-mail : </label>
-            <input type="text" id="email" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
-            <br>
-            <label for="streetNumber">Street and number : </label>
-            <input type="text" id="streetNumber" name="streetNumber" value="<?php echo isset($_POST["streetNumber"]) ? $_POST["streetNumber"] : ''; ?>">
-            <br>
-            <label for="city">City : </label>
-            <input type="text" id="city" name="city" value="<?php echo isset($_POST["city"]) ? $_POST["city"] : ''; ?>">
-            <br>
-            <label for="postalCode">Postal code : </label>
-            <input type="text" id="postalCode" name="postalCode" value="<?php echo isset($_POST["postalCode"]) ? $_POST["postalCode"] : ''; ?>">
-            <br>
-            <label for="country">Country : </label>
-            <input type="text" id="country" name="country" value="<?php echo isset($_POST["country"]) ? $_POST["country"] : ''; ?>">
-            <br>
-            <input type="submit" name="submit" value="Submit">
-        </form>
-        <?php
-        //display the form + button submit
-
-        //on submit: sanitize and validate data + submit
-
-        //if everything ok, session_destroy()
-
-        //display the confirmation message
-
-        ?>
+        <section class="mb-auto flex justify-around items-center mt-10">
+            <article class="w-1/2 m-10 p-2 shadow-2xl shadow-black">
+                <h3>Fill in the form below</h3>
+                <form action="confirmation.php" method="post" class="text-white">
+                    <label for="fname">First-name : </label>
+                    <input class="my-1" type="text" id="fname" name="fname" value="<?php echo isset($_POST["fname"]) ? $_POST["fname"] : ''; ?>">
+                    <br>
+                    <label for="lname">Last-name : </label>
+                    <input class="my-1" type="text" id="lname" name="lname" value="<?php echo isset($_POST["lname"]) ? $_POST["lname"] : ''; ?>">
+                    <br>
+                    <label for="mail">E-mail : </label>
+                    <input class="my-1" type="text" id="email" name="email" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
+                    <br>
+                    <label for="streetNumber">Street and number : </label>
+                    <input class="my-1" type="text" id="streetNumber" name="streetNumber" value="<?php echo isset($_POST["streetNumber"]) ? $_POST["streetNumber"] : ''; ?>">
+                    <br>
+                    <label for="city">City : </label>
+                    <input class="my-1" type="text" id="city" name="city" value="<?php echo isset($_POST["city"]) ? $_POST["city"] : ''; ?>">
+                    <br>
+                    <label for="postalCode">Postal code : </label>
+                    <input class="my-1" type="text" id="postalCode" name="postalCode" value="<?php echo isset($_POST["postalCode"]) ? $_POST["postalCode"] : ''; ?>">
+                    <br>
+                    <label for="country">Country : </label>
+                    <input class="my-1" type="text" id="country" name="country" value="<?php echo isset($_POST["country"]) ? $_POST["country"] : ''; ?>">
+                    <br>
+                    <input class="bg-blue-600 px-10 py-2 rounded " type="submit"  name="submit" value="Validate">
+                </form>
+            </article>
+            <article class="bg-white w-1/5 text-black">
+                <h3>Shopping cart</h3>
+                <div class="flex justify-between bg-blue-600 px-10 py-2 rounded">
+                    <p class="block text-white">Total</p>
+                    <p class="block text-white"><?php echo $_SESSION["price"];?></p>
+                </div>
+            </article>
+        </section>
 
     </main>
 
