@@ -40,17 +40,23 @@
             echo '<input type="submit" name="Add' . $i . '" value="Add to cart">';
             echo '</form>';
             echo '</div>';
-
+        
             if (isset($_POST["Add{$i}"])) {
-                $change=false;
-                foreach($_SESSION['shopping-cart'] as $elem){
-                    if($elem["id"]==$item["id"]){
-                        $elem["quantity"]=$elem["quantity"]+1;
-                        $change=true;
+                if(!isset($_SESSION['shopping-cart'])) {
+                    $_SESSION['shopping-cart'] = array();
+                }
+                $itemExists = false;
+                // check if item already exists in cart
+                for($j = 0; $j < count($_SESSION['shopping-cart']); $j++) {
+                    if($_SESSION['shopping-cart'][$j]['id'] == $item['id']) {
+                        $_SESSION['shopping-cart'][$j]['quantity']++;
+                        $itemExists = true;
+                        break;
                     }
                 }
-                if(!$change){
-                    $item["quantity"]++;
+                // if item does not exist in cart, add it
+                if(!$itemExists) {
+                    $item['quantity'] = 1;
                     $_SESSION['shopping-cart'][] = $item;
                 }
             }
