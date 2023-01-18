@@ -32,16 +32,16 @@ function display()
     foreach ($_SESSION['shopping-cart'] as $shopping_item) {
         //display each element in HTML format
         ?>
-       <div class="article">
-       <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-10">
-       <h3 class="article__name"><?php echo $shopping_item['product']; ?></h3>
-       <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
-       <form method="get" action="" class="article_removecart">
-        <!--replace the button "ADD" by "REMOVE"-->
-       <input type="submit" name="remove<?php echo $shopping_item["id"]; ?>" value="remove">
-       </form>
-       </div>
-       <?php
+        <div class="article flex justify-between bg-white text-black">
+            <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-10">
+            <h3 class="article__name"><?php echo $shopping_item['product']; ?></h3>
+            <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
+            <form method="get" action="" class="article_removecart">
+                <!--replace the button "ADD" by "REMOVE"-->
+            <input type="submit" name="remove<?php echo $shopping_item["id"]; ?>" value="remove">
+            </form>
+        </div>
+        <?php
     }
 }
 
@@ -64,11 +64,20 @@ function display()
     include "./header.php"
     ?>
     <main>
-        <h1>Your shopping cart</h1>
+        <h1 class="font-ubuntu font-semibold text-3xl text-center pt-10">Your shopping cart</h1>
         <?php
         session_start();
-        display();
+        ?>
 
+        <section class="articles_wrapper w-9/12 mx-auto pt-10">
+
+        <?php
+        display();
+        ?>
+        
+        </section>
+
+        <?php
         if (isset($_POST['reset'])) {
             resetCart();
             echo "<meta http-equiv='refresh' content='0'>";
