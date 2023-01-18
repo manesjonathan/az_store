@@ -38,7 +38,7 @@ function checkForm($arrayForm)
     $email = $_POST['email'];
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $postalCode = $_POST['postalCode'];
-    if (ctype_alpha($fname) && ctype_alpha($lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
+    if (preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/', $fname) && preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/', $lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
         $_SESSION['user_input'] = $arrayForm;
         include "./mail.php";
         send_mail($email);
@@ -67,6 +67,7 @@ function checkForm($arrayForm)
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
