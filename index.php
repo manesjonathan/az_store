@@ -45,7 +45,7 @@
                 $change=false;
                 foreach($_SESSION['shopping-cart'] as $elem){
                     if($elem["id"]==$item["id"]){
-                        $elem["quantity"]++;
+                        $elem["quantity"]=$elem["quantity"]+1;
                         $change=true;
                     }
                 }
