@@ -1,4 +1,4 @@
-<header>
+<header class="text-white font-ubuntu flex">
     <h1>AZ Store</h1>
     <nav>
         <a href="./index.php">Home</a>
