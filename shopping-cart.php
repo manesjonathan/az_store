@@ -31,15 +31,17 @@ function display()
 {
     foreach ($_SESSION['shopping-cart'] as $shopping_item) {
         //display each element in HTML format
-        echo '<div class="article">';
-        echo '<img src="' . $shopping_item['image_url'] . '" class="article__img">';
-        echo '<h3 class="article__name">' . $shopping_item['product'] . '</h3>';
-        echo '<p class="article__price">' . $shopping_item['price'] . '€</p>';
-        echo '<form method="get" action="" class="article_removecart">';
-        //replace the button "ADD" by "REMOVE"
-        echo '<input type="submit" name="remove' . $shopping_item["id"] . '" value="remove">';
-        echo '</form>';
-        echo '</div>';
+        ?>
+       <div class="article">
+       <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-10">
+       <h3 class="article__name"><?php echo $shopping_item['product']; ?></h3>
+       <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
+       <form method="get" action="" class="article_removecart">
+        <!--replace the button "ADD" by "REMOVE"-->
+       <input type="submit" name="remove<?php echo $shopping_item["id"]; ?>" value="remove">
+       </form>
+       </div>
+       <?php
     }
 }
 
@@ -53,14 +55,16 @@ function display()
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AZ Store">
     <link rel="stylesheet" href="./assets/css/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>AZ Store</title>
 </head>
 
-<body >
+<body class="bg-black text-white">
     <?php
     include "./header.php"
     ?>
-    <main class="bg-black">
+    <main>
+        <h1>Your shopping cart</h1>
         <?php
         session_start();
         display();
