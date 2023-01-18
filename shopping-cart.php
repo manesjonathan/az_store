@@ -67,7 +67,6 @@ function display()
         <?php
         session_start();
         display();
-
         if (isset($_POST['reset'])) {
             resetCart();
         }
