@@ -18,14 +18,14 @@ function updatePrice()
 
 function remove($item)
 {
-    for ($i = 0; $i < count($_SESSION['shopping-cart']); $i++) {
+    foreach($_SESSION['shopping-cart'] as $i => $elem) {
         if ($_SESSION['shopping-cart'][$i]['id'] == $item['id']) {
             if ($item['quantity'] > 1) {
                 $_SESSION['shopping-cart'][$i]['quantity'] = $_SESSION['shopping-cart'][$i]['quantity'] - 1;
+                break;
             } else {
                 unset($_SESSION["shopping-cart"][$i]);
             }
-            break;
         }
     }
 };
@@ -86,9 +86,9 @@ function display()
         }
         foreach ($_SESSION['shopping-cart'] as $shopping_item) {
             if (isset($_GET["remove{$shopping_item["id"]}"])) {
-                remove($item);
+                remove($shopping_item);
                 updatePrice();
-                echo "<meta http-equiv='refresh' content='0'>";
+                header("Location:./shopping-cart.php");
                 break;
             };
         };

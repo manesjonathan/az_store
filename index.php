@@ -47,7 +47,7 @@
                 }
                 $itemExists = false;
                 // check if item already exists in cart
-                for($j = 0; $j < count($_SESSION['shopping-cart']); $j++) {
+                foreach($_SESSION['shopping-cart'] as $j => $elem) {
                     if($_SESSION['shopping-cart'][$j]['id'] == $item['id']) {
                         $_SESSION['shopping-cart'][$j]['quantity']++;
                         $itemExists = true;
