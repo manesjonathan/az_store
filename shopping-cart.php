@@ -21,12 +21,14 @@ function remove($item)
 };
 
 function resetCart()
-{
-    unset($_SESSION['shopping-cart']);
+{   
+    foreach ($_SESSION['shopping-cart'] as $i => $item) {
+        unset($_SESSION['shopping-cart'][$i]);
+    }
 }
 
 function display()
-{
+{    
     foreach ($_SESSION['shopping-cart'] as $shopping_item) {
         //display each element in HTML format
         echo '<div class="article">';
@@ -69,14 +71,13 @@ function display()
         display();
         if (isset($_POST['reset'])) {
             resetCart();
+            echo "<meta http-equiv='refresh' content='0'>";
         }
-        if (isset($_SESSION['shopping-cart'])) {
-            foreach ($_SESSION['shopping-cart'] as $shopping_item) {
-                if (isset($_GET["remove{$shopping_item["id"]}"])) {
-                    remove($shopping_item);
-                    echo "<meta http-equiv='refresh' content='0'>";
-                };
-            }
+        foreach ($_SESSION['shopping-cart'] as $shopping_item) {
+            if (isset($_GET["remove{$shopping_item["id"]}"])) {
+                remove($shopping_item);
+                echo "<meta http-equiv='refresh' content='0'>";
+            };
         }
         //call the function total and add the $shopping_item price to it
         price($_SESSION['shopping-cart']);
