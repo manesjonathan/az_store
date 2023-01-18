@@ -23,15 +23,9 @@ $country = $arrayForm['country'];
 </head>
 
 <body>
-    <header>
-        <h1>AZ Store</h1>
-        <nav>
-            <a href="./index.php">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<?php
+    include "./header.php"
+    ?>
 
     <main>
 
@@ -41,14 +35,9 @@ $country = $arrayForm['country'];
         ?>
 
     </main>
-    <footer>
-        <nav>
-            <a href="./index.php">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </footer>
+    <?php
+    include "./footer.php"
+    ?>
 </body>
 
 </html>

@@ -10,18 +10,10 @@
     <title>AZ Store</title>
 </head>
 
-<body class="bg-black">
-    <header>
-        <p>AZ Store</p>
-        <nav>
-            <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <a href="./shopping-cart.php">Cart</a>
-    </header>
+<body>
+    <?php
+    include "./header.php"
+    ?>
     <main>
         <section>
             <article>
@@ -83,14 +75,9 @@
         </section>
     </main>
 
-    <footer>
-        <nav>
-            <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </footer>
+    <?php
+    include "./footer.php"
+    ?>
 </body>
 
 </html>
