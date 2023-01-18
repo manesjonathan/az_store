@@ -10,17 +10,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>AZ Store</h1>
-        <nav>
-            <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <a href="./shopping-cart.php">Cart</a>
-    </header>
+    <?php
+    include "./header.php"
+    ?>
     <main>
         <!-- display the carousel with products-->
 
@@ -48,14 +40,9 @@
         ?>
     </main>
 
-    <footer>
-        <nav>
-            <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </footer>
+    <?php
+    include "./footer.php"
+    ?>
 </body>
 
 </html>
