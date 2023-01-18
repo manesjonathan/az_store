@@ -27,7 +27,16 @@
 
 <?php
 
-$arrayForm = array($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['streetNumber'], $_POST['city'], $_POST['postalCode'], $_POST['country']);
+
+$arrayForm = array(
+    isset($_POST['fname']),
+    isset($_POST['lname']),
+    isset($_POST['email']),
+    isset($_POST['streetNumber']),
+    isset($_POST['city']),
+    isset($_POST['postalCode']),
+    isset($_POST['country'])
+);
 
 if (isset($_POST['submit'])) {
     $error = false;
@@ -60,8 +69,7 @@ function checkForm()
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $postalCode = $_POST['postalCode'];
     if (ctype_alpha($fname) && ctype_alpha($lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
-    ?> <img src="assets/image/correct.png" alt="Correct : contient uniquement des lettres" style="width: 2%;">
-        <?php
+        header("Location: ./confirmation.php");
     } else {
         if (!ctype_alpha($fname)) {
         ?>
