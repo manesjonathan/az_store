@@ -40,9 +40,9 @@ function checkForm($arrayForm)
     $postalCode = $_POST['postalCode'];
     if (preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/', $fname) && preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/', $lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
         $_SESSION['user_input'] = $arrayForm;
+        header("Location: ./confirmation.php");
         include "./mail.php";
         send_mail($email);
-        header("Location: ./confirmation.php");
     } else {
         if (!ctype_alpha($fname)) {
         ?>
