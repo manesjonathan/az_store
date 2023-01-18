@@ -57,7 +57,7 @@ function display()
     <header>
         <h1>AZ Store</h1>
         <nav>
-            <a href="/index.php">Home</a>
+            <a href="./index.php">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
@@ -98,7 +98,7 @@ function display()
 
     <footer>
         <nav>
-            <a href="/index.php">Home</a>
+            <a href="./index.php">Home</a>
             <a href="#about">About</a>
             <a href="#product">Product</a>
             <a href="#contact">Contact</a>
