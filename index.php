@@ -19,7 +19,7 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <a href="/shopping-cart.php">Cart</a>
+        <a href="./shopping-cart.php">Cart</a>
     </header>
     <main>
         <!-- display the carousel with products-->

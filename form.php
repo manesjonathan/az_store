@@ -26,9 +26,8 @@
 <br>
 
 <?php
-
-$arrayForm = array($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['streetNumber'], $_POST['city'], $_POST['postalCode'], $_POST['country']);
-
+session_start();
+$arrayForm = array();
 if (isset($_POST['submit'])) {
     $error = false;
     $error_message = "";
@@ -41,16 +40,23 @@ if (isset($_POST['submit'])) {
     if ($error) {
 ?>
         <p class="errorMsg"> <?php $error_message ?></p>
-    <?php
+        <?php
         echo $error_message;
     } else {
-        checkForm();
+        $arrayForm = array(
+            'fname' => $_POST['fname'],
+            'lname' => $_POST['lname'],
+            'email' => $_POST['email'],
+            'streetNumber' => $_POST['streetNumber'],
+            'city' => $_POST['city'],
+            'postalCode' => $_POST['postalCode'],
+            'country' => $_POST['country']
+        );
+        checkForm($arrayForm);
     }
 }
 
-
-
-function checkForm()
+function checkForm($arrayForm)
 {
     $fname = $_POST['fname'];
     //echo $fname;
@@ -60,8 +66,8 @@ function checkForm()
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $postalCode = $_POST['postalCode'];
     if (ctype_alpha($fname) && ctype_alpha($lname) && filter_var($email, FILTER_VALIDATE_EMAIL) && ctype_digit($postalCode)) {
-    ?> <img src="assets/image/correct.png" alt="Correct : contient uniquement des lettres" style="width: 2%;">
-        <?php
+        $_SESSION['user_input'] = $arrayForm;
+        header("Location: ./confirmation.php");
     } else {
         if (!ctype_alpha($fname)) {
         ?>
