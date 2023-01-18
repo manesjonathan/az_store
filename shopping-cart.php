@@ -4,37 +4,47 @@ $_SESSION['price'] = 0;
 /* fonction qui calcule le prix total
     le paramètre $array correspond à $_SESSION["shopping-cart"] 
 */
-function price($array)
+function updatePrice()
 {
     $total_price = 0;
-    foreach ($array as $article) {
-        $total_price = $total_price + $article["price"];
+    if (isset($_SESSION['shopping-cart'])) {
+        foreach ($_SESSION['shopping-cart'] as $article) {
+            $total_price = $total_price + ($article["price"] * $article["quantity"]);
+        }
     }
     $_SESSION['price'] = $total_price;
     return $total_price;
-};
+}
 
 function remove($item)
 {
-    $key = array_search($item, $_SESSION["shopping-cart"]);
-    unset($_SESSION["shopping-cart"][$key]);
+    for ($i = 0; $i < count($_SESSION['shopping-cart']); $i++) {
+        if ($_SESSION['shopping-cart'][$i]['id'] == $item['id']) {
+            if ($item['quantity'] > 1) {
+                $_SESSION['shopping-cart'][$i]['quantity'] = $_SESSION['shopping-cart'][$i]['quantity'] - 1;
+            } else {
+                unset($_SESSION["shopping-cart"][$i]);
+            }
+            break;
+        }
+    }
 };
 
 function resetCart()
-{   
+{
     foreach ($_SESSION['shopping-cart'] as $i => $item) {
         unset($_SESSION['shopping-cart'][$i]);
     }
 }
 
 function display()
-{    
+{
     foreach ($_SESSION['shopping-cart'] as $shopping_item) {
         //display each element in HTML format
         echo '<div class="article">';
         echo '<img src="' . $shopping_item['image_url'] . '" class="article__img">';
         echo '<h3 class="article__name">' . $shopping_item['product'] . '</h3>';
-        echo '<p class="article__quantity">'.$shopping_item['quantity'] .'</p>';
+        echo '<p class="article__quantity">' . $shopping_item['quantity'] . '</p>';
         echo '<p class="article__price">' . $shopping_item['price'] . '€</p>';
         echo '<form method="get" action="" class="article_removecart">';
         //replace the button "ADD" by "REMOVE"
@@ -76,12 +86,14 @@ function display()
         }
         foreach ($_SESSION['shopping-cart'] as $shopping_item) {
             if (isset($_GET["remove{$shopping_item["id"]}"])) {
-                remove($shopping_item);
+                remove($item);
+                updatePrice();
                 echo "<meta http-equiv='refresh' content='0'>";
+                break;
             };
-        }
+        };
         //call the function total and add the $shopping_item price to it
-        price($_SESSION['shopping-cart']);
+        updatePrice();
         //display total
         echo "<p>" . $_SESSION['price'] . "€</p>";
         //create the button go to checkout
