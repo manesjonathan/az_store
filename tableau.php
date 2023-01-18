@@ -2,7 +2,7 @@
 //liste des articles
 $items = [
     [
-        'id'=> 1 ,
+        'id' => 1,
         'product' => 'Nike Air Max 270',
         'price' => 140,
         'image_url' => './assets/image/shoe_one.png'
