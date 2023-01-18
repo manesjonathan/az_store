@@ -4,20 +4,30 @@ $_SESSION['price'] = 0;
 /* fonction qui calcule le prix total
     le paramètre $array correspond à $_SESSION["shopping-cart"] 
 */
-function price($array)
+function updatePrice()
 {
     $total_price = 0;
-    foreach ($array as $article) {
-        $total_price = $total_price + $article["price"];
+    if (isset($_SESSION['shopping-cart'])) {
+        foreach ($_SESSION['shopping-cart'] as $article) {
+            $total_price = $total_price + ($article["price"] * $article["quantity"]);
+        }
     }
     $_SESSION['price'] = $total_price;
     return $total_price;
-};
+}
 
 function remove($item)
 {
-    $key = array_search($item, $_SESSION["shopping-cart"]);
-    unset($_SESSION["shopping-cart"][$key]);
+    foreach($_SESSION['shopping-cart'] as $i => $elem) {
+        if ($_SESSION['shopping-cart'][$i]['id'] == $item['id']) {
+            if ($item['quantity'] > 1) {
+                $_SESSION['shopping-cart'][$i]['quantity'] = $_SESSION['shopping-cart'][$i]['quantity'] - 1;
+                break;
+            } else {
+                unset($_SESSION["shopping-cart"][$i]);
+            }
+        }
+    }
 };
 
 function resetCart()
@@ -85,11 +95,13 @@ function display()
         foreach ($_SESSION['shopping-cart'] as $shopping_item) {
             if (isset($_GET["remove{$shopping_item["id"]}"])) {
                 remove($shopping_item);
-                echo "<meta http-equiv='refresh' content='0'>";
+                updatePrice();
+                header("Location:./shopping-cart.php");
+                break;
             };
-        }
+        };
         //call the function total and add the $shopping_item price to it
-        price($_SESSION['shopping-cart']);
+        updatePrice();
         //display total
         echo "<p>" . $_SESSION['price'] . "€</p>";
         //create the button go to checkout
