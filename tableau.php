@@ -3,37 +3,30 @@
 $items = [
     [
         'id' => 1,
-        'product' => 'Nike Air Max 270',
+        'product' => 'NIKE Air Max 270',
         'price' => 140,
-        'image_url' => './assets/image/shoe_one.png',
+        'image_url' => './assets/image/shoe_one.webp',
         'quantity' => 0
     ],
     [
         'id' => 2,
-        'product' => 'Nike Air Max 280',
+        'product' => 'NIKE Air Max 280',
         'price' => 120,
-        'image_url' => './assets/image/shoe_two.png',
+        'image_url' => './assets/image/shoe_two.webp',
         'quantity' => 0
     ],
     [
         'id' => 3,
-        'product' => 'Nike Air Max 290',
+        'product' => 'NIKE Air Max 290',
         'price' => 130,
-        'image_url' => './assets/image/shoe_three.png',
+        'image_url' => './assets/image/shoe_one.webp',
         'quantity' => 0
     ],
     [
         'id' => 4,
-        'product' => 'Nike Air Max 120',
+        'product' => 'NIKE Air Max 120',
         'price' => 60,
-        'image_url' => './assets/image/shoe_four.png',
-        'quantity' => 0
-    ],
-    [
-        'id' => 5,
-        'product' => 'Nike Air Max 200',
-        'price' => 110,
-        'image_url' => './assets/image/shoe_five.png',
+        'image_url' => './assets/image/shoe_two.webp',
         'quantity' => 0
     ],
 

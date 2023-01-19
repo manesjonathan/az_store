@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/manesjonathan/az_store#readme",
   "devDependencies": {
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "tailwindcss-text-fill-stroke": "^1.1.2"
   }
 }
