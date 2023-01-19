@@ -533,6 +533,10 @@ video {
   margin: 2.5rem;
 }
 
+.m-5 {
+  margin: 1.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -616,12 +620,24 @@ video {
   width: 100%;
 }
 
+.w-2\/4 {
+  width: 50%;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .w-10 {
   width: 2.5rem;
 }
 
 .w-9\/12 {
   width: 75%;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -642,6 +658,10 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .bg-gray-100 {
@@ -676,14 +696,6 @@ video {
 
 .to-black {
   --tw-gradient-to: #000;
-}
-
-.stroke-black {
-  stroke: #000;
-}
-
-.stroke-gray-900 {
-  stroke: #111827;
 }
 
 .stroke-white {
@@ -776,19 +788,25 @@ video {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.opacity-5 {
-  opacity: 0.05;
-}
-
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.custom-class{
+  background-color: aqua;
+}
+
 @media (prefers-color-scheme: dark) {
   .dark\:bg-gray-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:custom-class{
+    background-color: aqua;
   }
 }

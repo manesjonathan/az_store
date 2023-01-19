@@ -8,7 +8,7 @@
     </nav>
 
     <div class="flex">
-        <img class="w-6 h-6 mr-2" src="./assets/image/panier.png" alt="cart">
+        <img class="w-6 h-6 mr-2" src="./assets/image/panier.webp" alt="cart">
         <a class="text-base" href="./shopping-cart.php">Cart</a>
     </div>
 
