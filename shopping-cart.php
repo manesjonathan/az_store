@@ -8,8 +8,8 @@ function updatePrice()
 {
     $total_price = 0;
     if (isset($_SESSION['shopping-cart'])) {
-        foreach ($_SESSION['shopping-cart'] as $article) {
-            $total_price = $total_price + ($article["price"] * $article["quantity"]);
+        foreach ($_SESSION['shopping-cart'] as $i => $article) {
+            $total_price = $total_price + ($_SESSION['shopping-cart'][$i]["price"] * $_SESSION['shopping-cart'][$i]['quantity']);
         }
     }
     $_SESSION['price'] = $total_price;
@@ -45,6 +45,7 @@ function display()
         <div class="article flex justify-between bg-white text-black">
             <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-10">
             <h3 class="article__name"><?php echo $shopping_item['product']; ?></h3>
+            <p class="article__quantity"><?php echo $shopping_item['quantity']; ?></p>
             <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
             <form method="get" action="" class="article_removecart">
                 <!--replace the button "ADD" by "REMOVE"-->
