@@ -42,14 +42,14 @@ function display()
     foreach ($_SESSION['shopping-cart'] as $shopping_item) {
         //display each element in HTML format
         ?>
-        <div class="article flex justify-between bg-white text-black">
-            <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-10">
-            <h3 class="article__name"><?php echo $shopping_item['product']; ?></h3>
-            <p class="article__quantity"><?php echo $shopping_item['quantity']; ?></p>
-            <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
-            <form method="get" action="" class="article_removecart">
+        <div class="article flex items-center justify-between bg-white text-black">
+            <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-1/12 pl-4 py-3">
+            <h3 class="article__name w-6/12 pl-4"><?php echo $shopping_item['product']; ?></h3>
+            <p class="article__quantity w-2/12"><?php echo $shopping_item['quantity']; ?></p>
+            <p class="article__price w-1/12"><?php echo $shopping_item['price']; ?>€</p>
+            <form method="get" action="" class="article_removecart w-2/12 text-right px-4">
                 <!--replace the button "ADD" by "REMOVE"-->
-            <input type="submit" name="remove<?php echo $shopping_item["id"]; ?>" value="remove">
+                <input type="submit" class="bg-blue-500 text-white rounded py-1.5 px-2.5 text-sm" name="remove<?php echo $shopping_item["id"]; ?>" value="remove">
             </form>
         </div>
         <?php
@@ -70,22 +70,30 @@ function display()
     <title>AZ Store</title>
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
     <?php
     include "./header.php"
     ?>
     <main>
-        <h1 class="font-ubuntu font-semibold text-3xl text-center pt-10">Your shopping cart</h1>
+        <h1 class="font-ubuntu font-semibold text-3xl text-center pt-10 pb-4">Your shopping cart</h1>
         <?php
         session_start();
         ?>
 
-        <section class="articles_wrapper w-9/12 mx-auto pt-10">
-
-        <?php
-        display();
-        ?>
+        <section class="articles_wrapper w-9/12 mx-auto border-y border-white">
+            <div class="article flex justify-between py-4 font-medium">
+                <h3 class="w-7/12 pl-4">Items</h3>
+                <p class="w-2/12">Quantity</p>
+                <p class="text-left w-3/12">Price</p>
+            </div>
         
+            <?php        
+            display();
+            ?>
+            
+            <form method="post" class="flex justify-end py-4 pr-1">
+                <input type="submit" name="reset" class="button bg-white text-blue-700 rounded py-1.5 px-2.5 text-sm" value="Reset cart" />
+            </form>
         </section>
 
         <?php
@@ -104,17 +112,15 @@ function display()
         //call the function total and add the $shopping_item price to it
         updatePrice();
         //display total
-        echo "<p>" . $_SESSION['price'] . "€</p>";
+        echo '<div class="total_wrapper flex items-center justify-end w-9/12 mx-auto py-4">';
+        echo '<p class="w-2/12 text-left">Total</p>';
+        echo '<p class="w-1/12 text-left">' . $_SESSION['price'] . "€</p>";
         //create the button go to checkout
-        echo "<div class='button'>";
-        echo "<form method='post' action='checkout.php' class='button_checkout'>";
-        echo '<input type="submit" name="checkout " value="Checkout">';
+        echo "<form method='post' action='checkout.php' class='button_checkout w-2/12 text-right px-3'>";
+        echo '<input type="submit" name="checkout " value="Payment" class="bg-blue-700 text-white rounded py-1.5 px-2.5 text-sm">';
         echo "</form>";
         echo "</div>";
         ?>
-        <form method="post">
-            <input type="submit" name="reset" class="button" value="Reset cart" />
-        </form>
 
     </main>
 

@@ -22,10 +22,10 @@
         <section class="flex justify-around m-auto items-center mt-36">
             <article class="flex-col w-2/6">
                 <h1 class="text-white text-6xl font-bold">SHOE THE RIGHT <span class="text-blue-600">ONE</span>.</h1>
-                <button class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-900 p-3 rounded mt-6 font-ligth">See our store</button>
+                <button id="see-store" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-900 p-3 rounded mt-6 font-ligth">See our store</button>
             </article>
             <article class="relative w-2/6 -ml-32">
-                <img class="w-full z-10 absolute -bottom-10" src="./assets/image/shoe_one.webp" alt="">
+                <img class="w-full z-10 absolute -bottom-10" src="./assets/image/shoe_one.webp" alt="Nike Air Max 270">
                 <p class="stroke-auto">NIKE</p>
             </article>
         </section>
@@ -44,7 +44,7 @@
                 $item = $items[$i];
                 echo '<div class="article text-white w-1/5 mx-3">';
                 echo '<div class="div_img p-2 shadow-black shadow-sm text-center mb-2">';
-                echo '<img src="' . $item['image_url'] . '" class="article__img w-3/4 m-auto">';
+                echo '<img src="' . $item['image_url'] . '" class="article__img w-3/4 m-auto" alt="Shoes">';
                 echo '</div>';
                 echo '<div class="flex justify-around items-center">';
                 echo '<div class="div_shoe">';
@@ -88,19 +88,19 @@
             </section>
             <section class="flex flex-row text-white text-center w-2/3 m-10">
                 <article class="flex flex-col items-center m-5">
-                    <img class="rounded-full" src="./assets/image/image-emily.webp" alt="">
-                    <h4 class="m-5">Emily from xyz</h4>
-                    <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <img class="rounded-full" src="./assets/image/image-emily.webp" alt="photo of Emily">
+                    <h3 class="font-semibold mt-3">Emily from xyz</h3>
+                    <p class="text-sm">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                 </article>
                 <article class="flex flex-col items-center m-5">
-                    <img class="rounded-full" src="./assets/image/image-thomas.webp" alt="">
-                    <h4 class="m-5">Thomas from corporate</h4>
-                    <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <img class="rounded-full" src="./assets/image/image-thomas.webp" alt="photo of Thomas">
+                    <h3 class="font-semibold mt-3">Thomas from corporate</h3>
+                    <p class="text-sm">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                 </article>
                 <article class="flex flex-col items-center m-5">
-                    <img class="rounded-full" src="./assets/image/image-jennie.webp" alt="">
-                    <h4 class="m-5">Jennie from Nike</h4>
-                    <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <img class="rounded-full" src="./assets/image/image-jennie.webp" alt="photo of Jennie">
+                    <h3 class="font-semibold mt-3">Jennie from Nike</h3>
+                    <p class="text-sm">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                 </article>
             </section>
         </section>
