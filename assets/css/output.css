@@ -544,6 +544,8 @@ video {
 
 .mr-2 {
   margin-right: 0.5rem;
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .mt-4 {
@@ -617,27 +619,27 @@ video {
   font-family: Ubuntu, sans-serif;
 }
 
-.font-londrina {
-  font-family: Londrina Outline, cursive;
-}
-
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
+.font-londrina {
+  font-family: Londrina Outline, cursive;
+}
+
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
-.text-\[20vw\] {
-  font-size: 20vw;
+.font-bold {
+  font-weight: 700;
 }
 
 .font-medium {
