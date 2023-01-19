@@ -74,7 +74,7 @@
         </section>
         <section class="flex flex-col items-center">
             <section class="flex flex-col text-white items-center text-center w-1/2 ">
-            <model-viewer style="width: 800px; height:600px" alt="" src="./assets/image/nike.glb" ar environment-image="" poster="" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+                <model-viewer style="width: 800px; height:600px" alt="" src="./assets/image/nike.glb" ar environment-image="" poster="" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
                 <!-- <img class="w-2/4" src="./assets/image/shoe_two.webp" alt=""> -->
                 <h2 class="text-6xl">WE PROVIDE YOU THE <span class="text-blue-600 font-bold">BEST</span> QUALITY.</h2>
                 <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
@@ -82,18 +82,18 @@
             <section class="flex flex-row text-white text-center w-2/3 m-10">
                 <article class="flex flex-col items-center m-5">
                     <img class="rounded-full" src="./assets/image/image-emily.webp" alt="">
-                    <h4>Emily from xyz</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <h4 class="m-5">Emily from xyz</h4>
+                    <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                 </article>
                 <article class="flex flex-col items-center m-5">
                     <img class="rounded-full" src="./assets/image/image-thomas.webp" alt="">
-                    <h4>Thomas from corporate</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <h4 class="m-5">Thomas from corporate</h4>
+                    <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                 </article>
                 <article class="flex flex-col items-center m-5">
                     <img class="rounded-full" src="./assets/image/image-jennie.webp" alt="">
-                    <h4>Jennie from Nike</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    <h4 class="m-5">Jennie from Nike</h4>
+                    <p class="m-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                 </article>
             </section>
         </section>
