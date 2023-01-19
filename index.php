@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>AZ Store</title>
 </head>
 
@@ -18,19 +18,20 @@
     include "./header.php"
     ?>
     <main>
-        <section>
-            <article>
-                <h1>SHOE THE RIGHT ONE.</h1>
-                <button>See our store</button>
+        <section class="flex justify-around mx-28 items-center mt-10">
+            <article class="flex-col w-2/6">
+                <h1 class="text-white text-6xl font-bold">SHOE THE RIGHT <span class="text-blue-600">ONE</span>.</h1>
+                <button class="text-white bg-blue rounded p-4 shadow">See our store</button>
             </article>
-            <article>
-
+            <article class="relative w-2/6">
+                <img class="w-full z-10 absolute" src="assets/image/shoe_one.png" alt="">
+                <p class="text-white opacity-5 font-londrina text-[20vw] -z-10">NIKE</p>
             </article>
         </section>
         <!-- display the carousel with products-->
 
         <!-- display all products -->
-        <h2 class="text-white font-ubuntu">Our last products</h2>
+        <h2 class="text-white font-ubuntu"><span class="text-blue-600">Our</span> last products</h2>
         <section>
             <?php
             session_start();
