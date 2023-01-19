@@ -7,6 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 
 function send_mail($to)
 {
+    session_start();
     $mail = new PHPMailer(true);
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -27,7 +28,7 @@ function send_mail($to)
     // Content
     $mail->isHTML(true);
     $mail->Subject = 'Order confirmation';
-    //$mail->Body    = 'We have received your order, it will be delivery soon !';
-    $mail->Body = file_get_contents('./mail-template.php');
+
+    $mail->Body = file_get_contents('./mail_template.php');
     $mail->send();
 }

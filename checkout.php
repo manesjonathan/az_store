@@ -50,7 +50,7 @@ function checkForm($arrayForm)
         header("Location: ./confirmation.php");
         include "./mail.php";
         send_mail($email);
-        resetCart();
+        //resetCart();
     } else {
         if (!ctype_alpha($fname)) {
         ?>
