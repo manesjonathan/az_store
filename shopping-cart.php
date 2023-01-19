@@ -74,7 +74,7 @@ function display()
     <?php
     include "./header.php"
     ?>
-    <main>
+    <main class="font-ubuntu">
         <h1 class="font-ubuntu font-semibold text-3xl text-center pt-10 pb-4">Your shopping cart</h1>
         <?php
         session_start();
