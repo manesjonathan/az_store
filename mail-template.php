@@ -10,7 +10,7 @@
 
 </head>
 
-<body style="display:flex;flex-direction: column; align-items:center; background-color: black; color:white">
+<body style="display:flex;flex-direction:column; align-items:center; background-color: black; color:white">
     <h1>Hello</h1>
     <p>We have received your order, it will be delivered soon.</p>
 </body>
