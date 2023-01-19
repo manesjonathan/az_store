@@ -18,14 +18,14 @@
     include "./header.php"
     ?>
     <main>
-        <section class="flex justify-around mx-28 items-center mt-10">
+        <section class="flex justify-around mx-25 items-center mt-32">
             <article class="flex-col w-2/6">
                 <h1 class="text-white text-6xl font-bold">SHOE THE RIGHT <span class="text-blue-600">ONE</span>.</h1>
-                <button class="text-white bg-blue rounded p-4 shadow">See our store</button>
+                <button class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-900 p-3 rounded mt-6">See our store</button>
             </article>
-            <article class="relative w-2/6">
-                <img class="w-full z-10 absolute" src="./assets/image/shoe_one.webp" alt="">
-                <p class="text-gray-900 text-[20vw] -z-10 stroke-white">NIKE</p>
+            <article class="relative w-2/6 -ml-32">
+                <img class="w-full z-10 absolute -bottom-10" src="./assets/image/shoe_one.webp" alt="">
+                <p class="stroke-auto">NIKE</p>
             </article>
         </section>
         <!-- display the carousel with products-->
