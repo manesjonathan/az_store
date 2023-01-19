@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .stroke-auto {
+        font-size: 15vw;
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-text-stroke: 0.05vw white;
+        opacity: 0.3;
+        @apply text-gray-900;
+    }
+  }

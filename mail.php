@@ -27,7 +27,7 @@ function send_mail($to)
     // Content
     $mail->isHTML(true);
     $mail->Subject = 'Order confirmation';
-    $mail->Body    = 'We have received your order, it will be delivery soon !';
-
+    //$mail->Body    = 'We have received your order, it will be delivery soon !';
+    $mail->Body = file_get_contents('./mail-template.php');
     $mail->send();
 }
