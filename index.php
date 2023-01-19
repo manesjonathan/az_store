@@ -24,8 +24,8 @@
                 <button class="text-white bg-blue rounded p-4 shadow">See our store</button>
             </article>
             <article class="relative w-2/6">
-                <img class="w-full z-10 absolute" src="assets/image/shoe_one.png" alt="">
-                <p class="text-white opacity-5 font-londrina text-[20vw] -z-10">NIKE</p>
+                <img class="w-full z-10 absolute" src="./assets/image/shoe_one.webp" alt="">
+                <p class="text-gray-900 text-[20vw] -z-10 stroke-white">NIKE</p>
             </article>
         </section>
         <!-- display the carousel with products-->
@@ -38,38 +38,62 @@
             $_SESSION['shopping-cart'] = (isset($_SESSION['shopping-cart'])) ? $_SESSION['shopping-cart'] : array();
             include "tableau.php";
 
-        for ($i = 0; $i < count($items); $i++) {
-            $item = $items[$i];
-            echo '<div class="article">';
-            echo '<img src="' . $item['image_url'] . '" class="article__img">';
-            echo '<h3 class="article__name">' . $item['product'] . '</h3>';
-            echo '<p class="article__price">' . $item['price'] . '€</p>';
-            echo '<form method="post" action="" class="article_addcart">';
-            echo '<input type="submit" name="Add' . $i . '" value="Add to cart">';
-            echo '</form>';
-            echo '</div>';
-        
-            if (isset($_POST["Add{$i}"])) {
-                if(!isset($_SESSION['shopping-cart'])) {
-                    $_SESSION['shopping-cart'] = array();
-                }
-                $itemExists = false;
-                // check if item already exists in cart
-                foreach($_SESSION['shopping-cart'] as $j => $elem) {
-                    if($_SESSION['shopping-cart'][$j]['id'] == $item['id']) {
-                        $_SESSION['shopping-cart'][$j]['quantity']++;
-                        $itemExists = true;
-                        break;
+            for ($i = 0; $i < count($items); $i++) {
+                $item = $items[$i];
+                echo '<div class="article">';
+                echo '<img src="' . $item['image_url'] . '" class="article__img">';
+                echo '<h3 class="article__name">' . $item['product'] . '</h3>';
+                echo '<p class="article__price">' . $item['price'] . '€</p>';
+                echo '<form method="post" action="" class="article_addcart">';
+                echo '<input type="submit" name="Add' . $i . '" value="Add to cart">';
+                echo '</form>';
+                echo '</div>';
+
+                if (isset($_POST["Add{$i}"])) {
+                    if (!isset($_SESSION['shopping-cart'])) {
+                        $_SESSION['shopping-cart'] = array();
+                    }
+                    $itemExists = false;
+                    // check if item already exists in cart
+                    foreach ($_SESSION['shopping-cart'] as $j => $elem) {
+                        if ($_SESSION['shopping-cart'][$j]['id'] == $item['id']) {
+                            $_SESSION['shopping-cart'][$j]['quantity']++;
+                            $itemExists = true;
+                            break;
+                        }
+                    }
+                    // if item does not exist in cart, add it
+                    if (!$itemExists) {
+                        $item['quantity'] = 1;
+                        $_SESSION['shopping-cart'][] = $item;
                     }
                 }
-                // if item does not exist in cart, add it
-                if(!$itemExists) {
-                    $item['quantity'] = 1;
-                    $_SESSION['shopping-cart'][] = $item;
-                }
             }
-        }
-        ?>
+            ?>
+        </section>
+        <section>
+            <img src="./assets/image/shoe_two.webp" alt="">
+            <h2>WE PROVIDE YOU THE BEST QUALITY.</h2>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+        </section>
+        <section>
+            <article>
+                <img src="./assets/image/image-emily.webp" alt="">
+                <h4>Emily from xyz</h4>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            </article>
+            <article>
+                <img src="./assets/image/image-thomas.webp" alt="">
+                <h4>Thomas from corporate</h4>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            </article>
+            <article>
+                <img src="./assets/image/image-jennie.webp" alt="">
+                <h4>Jennie from Nike</h4>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            </article>
+        </section>
+
     </main>
 
     <?php

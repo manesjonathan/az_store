@@ -8,8 +8,8 @@ function updatePrice()
 {
     $total_price = 0;
     if (isset($_SESSION['shopping-cart'])) {
-        foreach ($_SESSION['shopping-cart'] as $article) {
-            $total_price = $total_price + ($article["price"] * $article["quantity"]);
+        foreach ($_SESSION['shopping-cart'] as $i => $article) {
+            $total_price = $total_price + ($_SESSION['shopping-cart'][$i]["price"] * $_SESSION['shopping-cart'][$i]['quantity']);
         }
     }
     $_SESSION['price'] = $total_price;
@@ -41,16 +41,18 @@ function display()
 {
     foreach ($_SESSION['shopping-cart'] as $shopping_item) {
         //display each element in HTML format
-        echo '<div class="article">';
-        echo '<img src="' . $shopping_item['image_url'] . '" class="article__img">';
-        echo '<h3 class="article__name">' . $shopping_item['product'] . '</h3>';
-        echo '<p class="article__quantity">' . $shopping_item['quantity'] . '</p>';
-        echo '<p class="article__price">' . $shopping_item['price'] . '€</p>';
-        echo '<form method="get" action="" class="article_removecart">';
-        //replace the button "ADD" by "REMOVE"
-        echo '<input type="submit" name="remove' . $shopping_item["id"] . '" value="remove">';
-        echo '</form>';
-        echo '</div>';
+        ?>
+        <div class="article flex justify-between bg-white text-black">
+            <img src="<?php echo $shopping_item['image_url']; ?>" class="article__img w-10">
+            <h3 class="article__name"><?php echo $shopping_item['product']; ?></h3>
+            <p class="article__quantity"><?php echo $shopping_item['quantity']; ?></p>
+            <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
+            <form method="get" action="" class="article_removecart">
+                <!--replace the button "ADD" by "REMOVE"-->
+            <input type="submit" name="remove<?php echo $shopping_item["id"]; ?>" value="remove">
+            </form>
+        </div>
+        <?php
     }
 }
 
@@ -63,17 +65,30 @@ function display()
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AZ Store">
+    <link rel="stylesheet" href="./assets/css/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>AZ Store</title>
 </head>
 
-<body>
+<body class="bg-black text-white">
     <?php
     include "./header.php"
     ?>
     <main>
+        <h1 class="font-ubuntu font-semibold text-3xl text-center pt-10">Your shopping cart</h1>
         <?php
         session_start();
+        ?>
+
+        <section class="articles_wrapper w-9/12 mx-auto pt-10">
+
+        <?php
         display();
+        ?>
+        
+        </section>
+
+        <?php
         if (isset($_POST['reset'])) {
             resetCart();
             echo "<meta http-equiv='refresh' content='0'>";
