@@ -29,6 +29,13 @@ if (isset($_POST['submit'])) {
     }
 }
 
+function resetCart()
+{
+    foreach ($_SESSION['shopping-cart'] as $i => $item) {
+        unset($_SESSION['shopping-cart'][$i]);
+    }
+}
+
 function checkForm($arrayForm)
 {
     $fname = $_POST['fname'];
@@ -43,6 +50,7 @@ function checkForm($arrayForm)
         header("Location: ./confirmation.php");
         include "./mail.php";
         send_mail($email);
+        resetCart();
     } else {
         if (!ctype_alpha($fname)) {
         ?>
