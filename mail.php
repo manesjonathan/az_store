@@ -7,7 +7,6 @@ use PHPMailer\PHPMailer\Exception;
 
 function send_mail($to)
 {
-    session_start();
     $mail = new PHPMailer(true);
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;

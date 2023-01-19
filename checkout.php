@@ -51,6 +51,7 @@ function checkForm($arrayForm)
         include "./mail.php";
         send_mail($email);
         //resetCart();
+        //session_close();
     } else {
         if (!ctype_alpha($fname)) {
         ?>
