@@ -70,7 +70,7 @@ function checkForm($arrayForm)
         if (!ctype_digit($postalCode)) {
         ?>
             <p class="errorMsg">Warning: incorrect postal code. It can only contain numbers.</p>
-<?php
+        <?php
         }
     }
 }
@@ -86,11 +86,10 @@ function display()
             <p class="article__quantity"><?php echo $shopping_item['quantity']; ?></p>
             <p class="article__price"><?php echo $shopping_item['price']; ?>€</p>
         </div>
-        <?php
+<?php
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -140,12 +139,12 @@ function display()
                     <div class="my-1 flex w-3/4 justify-between">
                         <label for="postalCode" class="block">Postal code : </label>
                         <input class="w-1/2" type="text" id="postalCode" name="postalCode" value="<?php echo isset($_POST["postalCode"]) ? $_POST["postalCode"] : ''; ?>">
-                    </div> 
+                    </div>
                     <div class="my-1 flex w-3/4 justify-between">
                         <label for="country" class="block">Country : </label>
                         <input class="w-1/2" type="text" id="country" name="country" value="<?php echo isset($_POST["country"]) ? $_POST["country"] : ''; ?>">
                     </div>
-                    <input class="bg-blue-600 px-10 py-2 rounded cursor-pointer my-1  " type="submit"  name="submit" value="Validate">
+                    <input class="bg-blue-600 px-10 py-2 rounded cursor-pointer my-1  " type="submit" name="submit" value="Validate">
                 </form>
             </article>
             <article class="bg-white  text-black w-4/5 sm:w-3/5 lg:w-2/5 xl:w-1/5 ">
@@ -153,7 +152,7 @@ function display()
                 <?php display(); ?>
                 <div class="flex justify-between bg-blue-600 px-5 py-2 rounded-tl rounded-tr">
                     <p class="block text-white">Total</p>
-                    <p class="block text-white"><?php echo $_SESSION["price"];?>€</p>
+                    <p class="block text-white"><?php echo $_SESSION["price"]; ?>€</p>
                 </div>
             </article>
         </section>
