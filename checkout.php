@@ -90,9 +90,9 @@ function checkForm($arrayForm)
         <hr class="w-1/2 h-0.5 mx-auto my-4 bg-gray-100 ">
 
         <section class="mb-auto flex justify-around items-center mt-10">
-            <article class="w-1/2 m-10 p-2 shadow-2xl shadow-black">
+            <article class="w-1/2 m-10 p-2 shadow-xl shadow-gray-600">
                 <h3>Fill in the form below</h3>
-                <form action="confirmation.php" method="post" class="text-white">
+                <form action="" method="post" class="text-white">
                     <label for="fname">First-name : </label>
                     <input class="my-1" type="text" id="fname" name="fname" value="<?php echo isset($_POST["fname"]) ? $_POST["fname"] : ''; ?>">
                     <br>
